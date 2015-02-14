@@ -8,11 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		14DB89011A8F532100FAFB6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DB89001A8F532100FAFB6C /* AppDelegate.swift */; };
-		14DB89031A8F532100FAFB6C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DB89021A8F532100FAFB6C /* ViewController.swift */; };
+		14DB89031A8F532100FAFB6C /* Viewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DB89021A8F532100FAFB6C /* Viewer.swift */; };
 		14DB89061A8F532100FAFB6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14DB89041A8F532100FAFB6C /* Main.storyboard */; };
 		14DB89081A8F532100FAFB6C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14DB89071A8F532100FAFB6C /* Images.xcassets */; };
 		14DB890B1A8F532100FAFB6C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14DB89091A8F532100FAFB6C /* LaunchScreen.xib */; };
 		14DB89171A8F532100FAFB6C /* kaidanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DB89161A8F532100FAFB6C /* kaidanTests.swift */; };
+		14DB89211A8F580900FAFB6C /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DB89201A8F580900FAFB6C /* List.swift */; };
+		14DB89281A8F5E5F00FAFB6C /* kaidanLibs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DB89271A8F5E5F00FAFB6C /* kaidanLibs.swift */; };
+		14DB892A1A8F657100FAFB6C /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DB89291A8F657100FAFB6C /* Navigation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +32,16 @@
 		14DB88FB1A8F532100FAFB6C /* kaidan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kaidan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14DB88FF1A8F532100FAFB6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14DB89001A8F532100FAFB6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		14DB89021A8F532100FAFB6C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		14DB89021A8F532100FAFB6C /* Viewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Viewer.swift; sourceTree = "<group>"; };
 		14DB89051A8F532100FAFB6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14DB89071A8F532100FAFB6C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		14DB890A1A8F532100FAFB6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		14DB89101A8F532100FAFB6C /* kaidanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kaidanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14DB89151A8F532100FAFB6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14DB89161A8F532100FAFB6C /* kaidanTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaidanTests.swift; sourceTree = "<group>"; };
+		14DB89201A8F580900FAFB6C /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		14DB89271A8F5E5F00FAFB6C /* kaidanLibs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = kaidanLibs.swift; sourceTree = "<group>"; };
+		14DB89291A8F657100FAFB6C /* Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,11 +84,14 @@
 			isa = PBXGroup;
 			children = (
 				14DB89001A8F532100FAFB6C /* AppDelegate.swift */,
-				14DB89021A8F532100FAFB6C /* ViewController.swift */,
+				14DB89291A8F657100FAFB6C /* Navigation.swift */,
+				14DB89201A8F580900FAFB6C /* List.swift */,
+				14DB89021A8F532100FAFB6C /* Viewer.swift */,
 				14DB89041A8F532100FAFB6C /* Main.storyboard */,
 				14DB89071A8F532100FAFB6C /* Images.xcassets */,
 				14DB89091A8F532100FAFB6C /* LaunchScreen.xib */,
 				14DB88FE1A8F532100FAFB6C /* Supporting Files */,
+				14DB89271A8F5E5F00FAFB6C /* kaidanLibs.swift */,
 			);
 			path = kaidan;
 			sourceTree = "<group>";
@@ -212,8 +221,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14DB89031A8F532100FAFB6C /* ViewController.swift in Sources */,
+				14DB89031A8F532100FAFB6C /* Viewer.swift in Sources */,
+				14DB89281A8F5E5F00FAFB6C /* kaidanLibs.swift in Sources */,
+				14DB892A1A8F657100FAFB6C /* Navigation.swift in Sources */,
 				14DB89011A8F532100FAFB6C /* AppDelegate.swift in Sources */,
+				14DB89211A8F580900FAFB6C /* List.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +349,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = kaidan/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -347,6 +360,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = kaidan/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
