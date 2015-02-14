@@ -1,0 +1,420 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		14DB89011A8F532100FAFB6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DB89001A8F532100FAFB6C /* AppDelegate.swift */; };
+		14DB89031A8F532100FAFB6C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DB89021A8F532100FAFB6C /* ViewController.swift */; };
+		14DB89061A8F532100FAFB6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14DB89041A8F532100FAFB6C /* Main.storyboard */; };
+		14DB89081A8F532100FAFB6C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14DB89071A8F532100FAFB6C /* Images.xcassets */; };
+		14DB890B1A8F532100FAFB6C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14DB89091A8F532100FAFB6C /* LaunchScreen.xib */; };
+		14DB89171A8F532100FAFB6C /* kaidanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DB89161A8F532100FAFB6C /* kaidanTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		14DB89111A8F532100FAFB6C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14DB88F31A8F532100FAFB6C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 14DB88FA1A8F532100FAFB6C;
+			remoteInfo = kaidan;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		14DB88FB1A8F532100FAFB6C /* kaidan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kaidan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		14DB88FF1A8F532100FAFB6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		14DB89001A8F532100FAFB6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		14DB89021A8F532100FAFB6C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		14DB89051A8F532100FAFB6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		14DB89071A8F532100FAFB6C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		14DB890A1A8F532100FAFB6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		14DB89101A8F532100FAFB6C /* kaidanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kaidanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		14DB89151A8F532100FAFB6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		14DB89161A8F532100FAFB6C /* kaidanTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaidanTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		14DB88F81A8F532100FAFB6C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14DB890D1A8F532100FAFB6C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		14DB88F21A8F532100FAFB6C = {
+			isa = PBXGroup;
+			children = (
+				14DB88FD1A8F532100FAFB6C /* kaidan */,
+				14DB89131A8F532100FAFB6C /* kaidanTests */,
+				14DB88FC1A8F532100FAFB6C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		14DB88FC1A8F532100FAFB6C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				14DB88FB1A8F532100FAFB6C /* kaidan.app */,
+				14DB89101A8F532100FAFB6C /* kaidanTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		14DB88FD1A8F532100FAFB6C /* kaidan */ = {
+			isa = PBXGroup;
+			children = (
+				14DB89001A8F532100FAFB6C /* AppDelegate.swift */,
+				14DB89021A8F532100FAFB6C /* ViewController.swift */,
+				14DB89041A8F532100FAFB6C /* Main.storyboard */,
+				14DB89071A8F532100FAFB6C /* Images.xcassets */,
+				14DB89091A8F532100FAFB6C /* LaunchScreen.xib */,
+				14DB88FE1A8F532100FAFB6C /* Supporting Files */,
+			);
+			path = kaidan;
+			sourceTree = "<group>";
+		};
+		14DB88FE1A8F532100FAFB6C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				14DB88FF1A8F532100FAFB6C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		14DB89131A8F532100FAFB6C /* kaidanTests */ = {
+			isa = PBXGroup;
+			children = (
+				14DB89161A8F532100FAFB6C /* kaidanTests.swift */,
+				14DB89141A8F532100FAFB6C /* Supporting Files */,
+			);
+			path = kaidanTests;
+			sourceTree = "<group>";
+		};
+		14DB89141A8F532100FAFB6C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				14DB89151A8F532100FAFB6C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		14DB88FA1A8F532100FAFB6C /* kaidan */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 14DB891A1A8F532100FAFB6C /* Build configuration list for PBXNativeTarget "kaidan" */;
+			buildPhases = (
+				14DB88F71A8F532100FAFB6C /* Sources */,
+				14DB88F81A8F532100FAFB6C /* Frameworks */,
+				14DB88F91A8F532100FAFB6C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = kaidan;
+			productName = kaidan;
+			productReference = 14DB88FB1A8F532100FAFB6C /* kaidan.app */;
+			productType = "com.apple.product-type.application";
+		};
+		14DB890F1A8F532100FAFB6C /* kaidanTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 14DB891D1A8F532100FAFB6C /* Build configuration list for PBXNativeTarget "kaidanTests" */;
+			buildPhases = (
+				14DB890C1A8F532100FAFB6C /* Sources */,
+				14DB890D1A8F532100FAFB6C /* Frameworks */,
+				14DB890E1A8F532100FAFB6C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				14DB89121A8F532100FAFB6C /* PBXTargetDependency */,
+			);
+			name = kaidanTests;
+			productName = kaidanTests;
+			productReference = 14DB89101A8F532100FAFB6C /* kaidanTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		14DB88F31A8F532100FAFB6C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = tebcro;
+				TargetAttributes = {
+					14DB88FA1A8F532100FAFB6C = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					14DB890F1A8F532100FAFB6C = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 14DB88FA1A8F532100FAFB6C;
+					};
+				};
+			};
+			buildConfigurationList = 14DB88F61A8F532100FAFB6C /* Build configuration list for PBXProject "kaidan" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 14DB88F21A8F532100FAFB6C;
+			productRefGroup = 14DB88FC1A8F532100FAFB6C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				14DB88FA1A8F532100FAFB6C /* kaidan */,
+				14DB890F1A8F532100FAFB6C /* kaidanTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		14DB88F91A8F532100FAFB6C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14DB89061A8F532100FAFB6C /* Main.storyboard in Resources */,
+				14DB890B1A8F532100FAFB6C /* LaunchScreen.xib in Resources */,
+				14DB89081A8F532100FAFB6C /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14DB890E1A8F532100FAFB6C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		14DB88F71A8F532100FAFB6C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14DB89031A8F532100FAFB6C /* ViewController.swift in Sources */,
+				14DB89011A8F532100FAFB6C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		14DB890C1A8F532100FAFB6C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				14DB89171A8F532100FAFB6C /* kaidanTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		14DB89121A8F532100FAFB6C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 14DB88FA1A8F532100FAFB6C /* kaidan */;
+			targetProxy = 14DB89111A8F532100FAFB6C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		14DB89041A8F532100FAFB6C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				14DB89051A8F532100FAFB6C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		14DB89091A8F532100FAFB6C /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				14DB890A1A8F532100FAFB6C /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		14DB89181A8F532100FAFB6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		14DB89191A8F532100FAFB6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		14DB891B1A8F532100FAFB6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = kaidan/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		14DB891C1A8F532100FAFB6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = kaidan/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		14DB891E1A8F532100FAFB6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = kaidanTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kaidan.app/kaidan";
+			};
+			name = Debug;
+		};
+		14DB891F1A8F532100FAFB6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = kaidanTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kaidan.app/kaidan";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		14DB88F61A8F532100FAFB6C /* Build configuration list for PBXProject "kaidan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14DB89181A8F532100FAFB6C /* Debug */,
+				14DB89191A8F532100FAFB6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		14DB891A1A8F532100FAFB6C /* Build configuration list for PBXNativeTarget "kaidan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14DB891B1A8F532100FAFB6C /* Debug */,
+				14DB891C1A8F532100FAFB6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		14DB891D1A8F532100FAFB6C /* Build configuration list for PBXNativeTarget "kaidanTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				14DB891E1A8F532100FAFB6C /* Debug */,
+				14DB891F1A8F532100FAFB6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 14DB88F31A8F532100FAFB6C /* Project object */;
+}
