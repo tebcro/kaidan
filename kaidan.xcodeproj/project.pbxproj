@@ -16,6 +16,8 @@
 		14DB89211A8F580900FAFB6C /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DB89201A8F580900FAFB6C /* List.swift */; };
 		14DB89281A8F5E5F00FAFB6C /* kaidanLibs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DB89271A8F5E5F00FAFB6C /* kaidanLibs.swift */; };
 		14DB892A1A8F657100FAFB6C /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DB89291A8F657100FAFB6C /* Navigation.swift */; };
+		97E19D52AFD63CF3A5127B45 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03B475AB3C96E56A63863727 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		E5979BDA1A905834000AA716 /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5979BD91A905834000AA716 /* Configs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03B475AB3C96E56A63863727 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0DC278C0F71D866D7C5E5CE8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		14DB88FB1A8F532100FAFB6C /* kaidan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kaidan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14DB88FF1A8F532100FAFB6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14DB89001A8F532100FAFB6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +46,8 @@
 		14DB89201A8F580900FAFB6C /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		14DB89271A8F5E5F00FAFB6C /* kaidanLibs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = kaidanLibs.swift; sourceTree = "<group>"; };
 		14DB89291A8F657100FAFB6C /* Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
+		16DDF803907DC3CAE85B4D50 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		E5979BD91A905834000AA716 /* Configs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97E19D52AFD63CF3A5127B45 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +75,8 @@
 				14DB88FD1A8F532100FAFB6C /* kaidan */,
 				14DB89131A8F532100FAFB6C /* kaidanTests */,
 				14DB88FC1A8F532100FAFB6C /* Products */,
+				3C21F4E1945253747D0CD3F0 /* Pods */,
+				399A083B12EED39626D21904 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,6 +101,7 @@
 				14DB89091A8F532100FAFB6C /* LaunchScreen.xib */,
 				14DB88FE1A8F532100FAFB6C /* Supporting Files */,
 				14DB89271A8F5E5F00FAFB6C /* kaidanLibs.swift */,
+				E5979BD91A905834000AA716 /* Configs.swift */,
 			);
 			path = kaidan;
 			sourceTree = "<group>";
@@ -121,6 +131,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		399A083B12EED39626D21904 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				03B475AB3C96E56A63863727 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3C21F4E1945253747D0CD3F0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0DC278C0F71D866D7C5E5CE8 /* Pods.debug.xcconfig */,
+				16DDF803907DC3CAE85B4D50 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -128,9 +155,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 14DB891A1A8F532100FAFB6C /* Build configuration list for PBXNativeTarget "kaidan" */;
 			buildPhases = (
+				FAA8940A2EFA23EB6187C7B3 /* Check Pods Manifest.lock */,
 				14DB88F71A8F532100FAFB6C /* Sources */,
 				14DB88F81A8F532100FAFB6C /* Frameworks */,
 				14DB88F91A8F532100FAFB6C /* Resources */,
+				22E1BAA102AC3E99C62C33C6 /* Embed Pods Frameworks */,
+				9764C2E3C77F29A02579148A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -216,6 +246,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		22E1BAA102AC3E99C62C33C6 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9764C2E3C77F29A02579148A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FAA8940A2EFA23EB6187C7B3 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		14DB88F71A8F532100FAFB6C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -226,6 +304,7 @@
 				14DB892A1A8F657100FAFB6C /* Navigation.swift in Sources */,
 				14DB89011A8F532100FAFB6C /* AppDelegate.swift in Sources */,
 				14DB89211A8F580900FAFB6C /* List.swift in Sources */,
+				E5979BDA1A905834000AA716 /* Configs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,10 +425,11 @@
 		};
 		14DB891B1A8F532100FAFB6C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0DC278C0F71D866D7C5E5CE8 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = kaidan/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -357,10 +437,11 @@
 		};
 		14DB891C1A8F532100FAFB6C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16DDF803907DC3CAE85B4D50 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = kaidan/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -419,6 +500,7 @@
 				14DB891C1A8F532100FAFB6C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		14DB891D1A8F532100FAFB6C /* Build configuration list for PBXNativeTarget "kaidanTests" */ = {
 			isa = XCConfigurationList;
@@ -427,6 +509,7 @@
 				14DB891F1A8F532100FAFB6C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,12 +7,32 @@
 //
 
 import UIKit
+import Alamofire
+import Alamofire_SwiftyJSON
 
 class List: UITableViewController {
 
-    override func viewDidLoad() {
+    var data:NSMutableArray?
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        
+        self.makeNavigationItems()
+    }
+    
+    override func viewWillAppear(animated: Bool)
+    {
+        self.loadList()
+        super.viewWillAppear(animated)
+    }
+    
+    override func didReceiveMemoryWarning()
+    {
+        super.didReceiveMemoryWarning()
+    }
+    
+    func makeNavigationItems()
+    {
         self.title = "ゆっくり怪談"
         
         let searchBtn = UIButton.buttonWithType(.Custom) as? UIButton
@@ -40,33 +60,45 @@ class List: UITableViewController {
     {
         
     }
-
-    override func didReceiveMemoryWarning()
+    
+    func loadList()
     {
-        super.didReceiveMemoryWarning()
+        let parameters = []
+        Alamofire.request(.GET, LIST_API_URL, parameters: nil)
+            .responseSwiftyJSON { (request, response, json, error) in
+                if response!.statusCode == 200
+                {
+                    let listData: NSDictionary = json.object as NSDictionary
+                    self.data = listData["lists"]! as? NSMutableArray
+                    self.tableView.reloadData()
+                    
+                } else
+                {
+                    println(error)
+                }
+        }
     }
 
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 0
+        return data?.count ?? 0
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("ListCell", forIndexPath: indexPath) as UITableViewCell
 
         // Configure the cell...
-
+        let cellData = data?.objectAtIndex(indexPath.row) as NSDictionary
+        cell.textLabel?.text = cellData["title"] as? String
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
