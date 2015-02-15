@@ -9,6 +9,8 @@
 import UIKit
 import Alamofire
 import Alamofire_SwiftyJSON
+import SVProgressHUD
+import HCYoutubeParser
 
 class List: UITableViewController {
 
@@ -63,6 +65,7 @@ class List: UITableViewController {
     
     func loadList()
     {
+        SVProgressHUD.showWithStatus("一覧取得中..", maskType: .Black)
         let parameters = []
         Alamofire.request(.GET, LIST_API_URL, parameters: nil)
             .responseSwiftyJSON { (request, response, json, error) in
@@ -71,10 +74,12 @@ class List: UITableViewController {
                     let listData: NSDictionary = json.object as NSDictionary
                     self.data = listData["lists"]! as? NSMutableArray
                     self.tableView.reloadData()
+                    SVProgressHUD.showSuccessWithStatus("取得完了！")
                     
                 } else
                 {
                     println(error)
+                    SVProgressHUD.showErrorWithStatus("取得失敗！")
                 }
         }
     }
@@ -91,13 +96,36 @@ class List: UITableViewController {
         return data?.count ?? 0
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ListCell", forIndexPath: indexPath) as UITableViewCell
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> ListCell
+    {
+        let cell = tableView.dequeueReusableCellWithIdentifier("ListCell", forIndexPath: indexPath) as ListCell
 
-        // Configure the cell...
         let cellData = data?.objectAtIndex(indexPath.row) as NSDictionary
-        cell.textLabel?.text = cellData["title"] as? String
+        cell.movieId = cellData["id"] as String
+        
+        var info = loadMovieInfo(cell.movieId)
+        
+        var image = UIImage.loadImage(cell.movieId)
+        if (image != nil) {
+            cell.imageView?.image = image
+        } else {
+            cell.getImage(info?["moreInfo"]!["iurl"] as String)
+        }
+        
+        let seconds                = info?["moreInfo"]!["length_seconds"] as? String
+        cell.textLabel?.text       = info?["moreInfo"]!["title"] as? String
+        cell.detailTextLabel?.text = "再生時間：\(seconds!)分"
+        
         return cell
+    }
+    
+    func loadMovieInfo(movieId: String)->NSDictionary?
+    {
+        let url  = NSURL(string: "https://www.youtube.com/embed/\(movieId)")
+        let dict = HCYoutubeParser.h264videosWithYoutubeURL(url)
+//        let url     = NSURL(string: dict["medium"] as NSString)
+        NSLog("dict=%@", dict)
+        return dict
     }
 
     /*
@@ -145,4 +173,7 @@ class List: UITableViewController {
     }
     */
 
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 60
+    }
 }

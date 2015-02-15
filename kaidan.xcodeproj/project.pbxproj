@@ -17,6 +17,7 @@
 		14DB89281A8F5E5F00FAFB6C /* kaidanLibs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DB89271A8F5E5F00FAFB6C /* kaidanLibs.swift */; };
 		14DB892A1A8F657100FAFB6C /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DB89291A8F657100FAFB6C /* Navigation.swift */; };
 		97E19D52AFD63CF3A5127B45 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03B475AB3C96E56A63863727 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		E52450C91A9086DE006E84A9 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52450C81A9086DE006E84A9 /* ListCell.swift */; };
 		E5979BDA1A905834000AA716 /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5979BD91A905834000AA716 /* Configs.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,8 @@
 		14DB89271A8F5E5F00FAFB6C /* kaidanLibs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = kaidanLibs.swift; sourceTree = "<group>"; };
 		14DB89291A8F657100FAFB6C /* Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		16DDF803907DC3CAE85B4D50 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		E52450C71A90864E006E84A9 /* kaidan-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "kaidan-Bridging-Header.h"; sourceTree = "<group>"; };
+		E52450C81A9086DE006E84A9 /* ListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 		E5979BD91A905834000AA716 /* Configs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +98,7 @@
 				14DB89001A8F532100FAFB6C /* AppDelegate.swift */,
 				14DB89291A8F657100FAFB6C /* Navigation.swift */,
 				14DB89201A8F580900FAFB6C /* List.swift */,
+				E52450C81A9086DE006E84A9 /* ListCell.swift */,
 				14DB89021A8F532100FAFB6C /* Viewer.swift */,
 				14DB89041A8F532100FAFB6C /* Main.storyboard */,
 				14DB89071A8F532100FAFB6C /* Images.xcassets */,
@@ -109,6 +113,7 @@
 		14DB88FE1A8F532100FAFB6C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E52450C71A90864E006E84A9 /* kaidan-Bridging-Header.h */,
 				14DB88FF1A8F532100FAFB6C /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -302,6 +307,7 @@
 				14DB89031A8F532100FAFB6C /* Viewer.swift in Sources */,
 				14DB89281A8F5E5F00FAFB6C /* kaidanLibs.swift in Sources */,
 				14DB892A1A8F657100FAFB6C /* Navigation.swift in Sources */,
+				E52450C91A9086DE006E84A9 /* ListCell.swift in Sources */,
 				14DB89011A8F532100FAFB6C /* AppDelegate.swift in Sources */,
 				14DB89211A8F580900FAFB6C /* List.swift in Sources */,
 				E5979BDA1A905834000AA716 /* Configs.swift in Sources */,
@@ -432,6 +438,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Debug;
 		};
@@ -444,6 +451,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};

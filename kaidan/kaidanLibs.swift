@@ -80,7 +80,7 @@ extension UIImage
     {
         var dir      = saveTypes.CACHE.rawValue
         var path     = NSHomeDirectory().stringByAppendingPathComponent(dir)
-        var filepath = "\(path)/\(filename).png"
+        var filepath = "\(path)/\(filename).jpg"
         
         if imageData.writeToFile(filepath, atomically: true) {
             return true
@@ -93,7 +93,7 @@ extension UIImage
     {
         var dir      = saveTypes.CACHE.rawValue
         var path     = NSHomeDirectory().stringByAppendingPathComponent(dir)
-        var filepath = "\(path)/\(filename).png"
+        var filepath = "\(path)/\(filename).jpg"
         
         return UIImage(contentsOfFile: filepath)?
     }
