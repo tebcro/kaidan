@@ -14,7 +14,7 @@ import HCYoutubeParser
 
 let reuseIdentifier = "Cell"
 
-class List: UICollectionViewController {
+class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
 
     var data:NSMutableArray?
     
@@ -116,6 +116,20 @@ class List: UICollectionViewController {
 
     // MARK: UICollectionViewDelegate
 
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets
+    {
+        return UIEdgeInsetsMake(5, 0, 10, 0)
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
+    {
+        return CGSize(width: self.view.frame.size.width, height: 60)
+    }
+    
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking
     override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
