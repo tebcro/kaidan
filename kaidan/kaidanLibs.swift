@@ -104,3 +104,14 @@ extension String {
         return (self as NSString).floatValue
     }
 }
+
+extension NSNumber {
+    
+    class func ponvireFloor (var value:Double, var figures:Int) -> Double
+    {
+        var tmp:Double = pow(10.0, Double(figures))
+        return value > 0.0 ? (floor(value * tmp) / tmp) : (ceil(value * tmp) / tmp)
+    }
+}
+
+

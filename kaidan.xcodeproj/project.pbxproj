@@ -13,12 +13,12 @@
 		14DB89081A8F532100FAFB6C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14DB89071A8F532100FAFB6C /* Images.xcassets */; };
 		14DB890B1A8F532100FAFB6C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14DB89091A8F532100FAFB6C /* LaunchScreen.xib */; };
 		14DB89171A8F532100FAFB6C /* kaidanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DB89161A8F532100FAFB6C /* kaidanTests.swift */; };
-		14DB89211A8F580900FAFB6C /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DB89201A8F580900FAFB6C /* List.swift */; };
 		14DB89281A8F5E5F00FAFB6C /* kaidanLibs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DB89271A8F5E5F00FAFB6C /* kaidanLibs.swift */; };
 		14DB892A1A8F657100FAFB6C /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DB89291A8F657100FAFB6C /* Navigation.swift */; };
 		97E19D52AFD63CF3A5127B45 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03B475AB3C96E56A63863727 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		E52450C91A9086DE006E84A9 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52450C81A9086DE006E84A9 /* ListCell.swift */; };
 		E5979BDA1A905834000AA716 /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5979BD91A905834000AA716 /* Configs.swift */; };
+		E5E33EEC1A90ACD300FD356D /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E33EEB1A90ACD300FD356D /* List.swift */; };
+		E5E33EEE1A90AE5500FD356D /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E33EED1A90AE5500FD356D /* ListCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,13 +44,13 @@
 		14DB89101A8F532100FAFB6C /* kaidanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kaidanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14DB89151A8F532100FAFB6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14DB89161A8F532100FAFB6C /* kaidanTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaidanTests.swift; sourceTree = "<group>"; };
-		14DB89201A8F580900FAFB6C /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		14DB89271A8F5E5F00FAFB6C /* kaidanLibs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = kaidanLibs.swift; sourceTree = "<group>"; };
 		14DB89291A8F657100FAFB6C /* Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		16DDF803907DC3CAE85B4D50 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E52450C71A90864E006E84A9 /* kaidan-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "kaidan-Bridging-Header.h"; sourceTree = "<group>"; };
-		E52450C81A9086DE006E84A9 /* ListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 		E5979BD91A905834000AA716 /* Configs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
+		E5E33EEB1A90ACD300FD356D /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		E5E33EED1A90AE5500FD356D /* ListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +97,8 @@
 			children = (
 				14DB89001A8F532100FAFB6C /* AppDelegate.swift */,
 				14DB89291A8F657100FAFB6C /* Navigation.swift */,
-				14DB89201A8F580900FAFB6C /* List.swift */,
-				E52450C81A9086DE006E84A9 /* ListCell.swift */,
+				E5E33EEB1A90ACD300FD356D /* List.swift */,
+				E5E33EED1A90AE5500FD356D /* ListCell.swift */,
 				14DB89021A8F532100FAFB6C /* Viewer.swift */,
 				14DB89041A8F532100FAFB6C /* Main.storyboard */,
 				14DB89071A8F532100FAFB6C /* Images.xcassets */,
@@ -306,11 +306,11 @@
 			files = (
 				14DB89031A8F532100FAFB6C /* Viewer.swift in Sources */,
 				14DB89281A8F5E5F00FAFB6C /* kaidanLibs.swift in Sources */,
+				E5E33EEE1A90AE5500FD356D /* ListCell.swift in Sources */,
 				14DB892A1A8F657100FAFB6C /* Navigation.swift in Sources */,
-				E52450C91A9086DE006E84A9 /* ListCell.swift in Sources */,
 				14DB89011A8F532100FAFB6C /* AppDelegate.swift in Sources */,
-				14DB89211A8F580900FAFB6C /* List.swift in Sources */,
 				E5979BDA1A905834000AA716 /* Configs.swift in Sources */,
+				E5E33EEC1A90ACD300FD356D /* List.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

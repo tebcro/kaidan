@@ -1,8 +1,8 @@
 //
-//  List.swift
+//  Collection.swift
 //  kaidan
 //
-//  Created by 溝田隆明 on 2015/02/14.
+//  Created by mizota on 2015/02/15.
 //  Copyright (c) 2015年 tebcro. All rights reserved.
 //
 
@@ -12,24 +12,33 @@ import Alamofire_SwiftyJSON
 import SVProgressHUD
 import HCYoutubeParser
 
-class List: UITableViewController {
+let reuseIdentifier = "Cell"
+
+class List: UICollectionViewController {
 
     var data:NSMutableArray?
     
-    override func viewDidLoad()
-    {
+    override func viewDidLoad() {
         super.viewDidLoad()
         self.makeNavigationItems()
+
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Register cell classes
+        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+
+        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(animated: Bool)
     {
-        self.loadList()
         super.viewWillAppear(animated)
+        self.collectionView?.backgroundColor = UIColor.hexStr("E9E9F5", alpha: 1)
+        self.loadList()
     }
-    
-    override func didReceiveMemoryWarning()
-    {
+
+    override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
@@ -53,16 +62,6 @@ class List: UITableViewController {
         self.navigationItem.rightBarButtonItem = menuItem
     }
     
-    func doSearch()
-    {
-        
-    }
-    
-    func doMenu()
-    {
-        
-    }
-    
     func loadList()
     {
         SVProgressHUD.showWithStatus("一覧取得中..", maskType: .Black)
@@ -73,7 +72,7 @@ class List: UITableViewController {
                 {
                     let listData: NSDictionary = json.object as NSDictionary
                     self.data = listData["lists"]! as? NSMutableArray
-                    self.tableView.reloadData()
+                    self.collectionView?.reloadData()
                     SVProgressHUD.showSuccessWithStatus("取得完了！")
                     
                 } else
@@ -84,38 +83,26 @@ class List: UITableViewController {
         }
     }
 
-    // MARK: - Table view data source
+    // MARK: UICollectionViewDataSource
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int
-    {
+    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
+    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data?.count ?? 0
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> ListCell
+    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> ListCell
     {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ListCell", forIndexPath: indexPath) as ListCell
-
-        let cellData = data?.objectAtIndex(indexPath.row) as NSDictionary
-        cell.movieId = cellData["id"] as String
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ListCell", forIndexPath: indexPath) as ListCell
+    
+        cell.movieId  = data?.objectAtIndex(indexPath.row) as NSString
         
-        var info = loadMovieInfo(cell.movieId)
-        
-        var image = UIImage.loadImage(cell.movieId)
-        if (image != nil) {
-            cell.imageView?.image = image
-        } else {
-            cell.getImage(info?["moreInfo"]!["iurl"] as String)
-        }
-        
-        let seconds                = info?["moreInfo"]!["length_seconds"] as? String
-        cell.textLabel?.text       = info?["moreInfo"]!["title"] as? String
-        cell.detailTextLabel?.text = "再生時間：\(seconds!)分"
-        
+        var info      = loadMovieInfo(cell.movieId)
+        cell.movieUrl = NSURL(string: info!["medium"] as NSString)
+        cell.makeFields(info?["moreInfo"]! as NSDictionary)
+    
         return cell
     }
     
@@ -123,57 +110,39 @@ class List: UITableViewController {
     {
         let url  = NSURL(string: "https://www.youtube.com/embed/\(movieId)")
         let dict = HCYoutubeParser.h264videosWithYoutubeURL(url)
-//        let url     = NSURL(string: dict["medium"] as NSString)
         NSLog("dict=%@", dict)
         return dict
     }
 
+    // MARK: UICollectionViewDelegate
+
     /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
+    // Uncomment this method to specify if the specified item should be highlighted during tracking
+    override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
     */
 
     /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
+    // Uncomment this method to specify if the specified item should be selected
+    override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
     */
 
     /*
-    // MARK: - Navigation
+    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
+    override func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return false
+    }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+    override func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
+        return false
+    }
+
+    override func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
+    
     }
     */
 
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 60
-    }
 }
