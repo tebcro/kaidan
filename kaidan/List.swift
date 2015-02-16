@@ -38,7 +38,7 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
     
     func makeNavigationItems()
     {
-        self.title = "ゆっくり怪談"
+        self.title = "怪談耳"
         
         let searchBtn = UIButton.buttonWithType(.Custom) as? UIButton
         searchBtn?.setBackgroundImage(UIImage(named: "search"), forState: .Normal)

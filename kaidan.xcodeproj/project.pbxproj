@@ -19,6 +19,7 @@
 		E5979BDA1A905834000AA716 /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5979BD91A905834000AA716 /* Configs.swift */; };
 		E5E33EEC1A90ACD300FD356D /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E33EEB1A90ACD300FD356D /* List.swift */; };
 		E5E33EEE1A90AE5500FD356D /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E33EED1A90AE5500FD356D /* ListCell.swift */; };
+		E5E33EF51A92469900FD356D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5E33EF41A92469900FD356D /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,10 +48,10 @@
 		14DB89271A8F5E5F00FAFB6C /* kaidanLibs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = kaidanLibs.swift; sourceTree = "<group>"; };
 		14DB89291A8F657100FAFB6C /* Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		16DDF803907DC3CAE85B4D50 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		E52450C71A90864E006E84A9 /* kaidan-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "kaidan-Bridging-Header.h"; sourceTree = "<group>"; };
 		E5979BD91A905834000AA716 /* Configs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
 		E5E33EEB1A90ACD300FD356D /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		E5E33EED1A90AE5500FD356D /* ListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
+		E5E33EF41A92469900FD356D /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,8 +114,8 @@
 		14DB88FE1A8F532100FAFB6C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				E52450C71A90864E006E84A9 /* kaidan-Bridging-Header.h */,
 				14DB88FF1A8F532100FAFB6C /* Info.plist */,
+				E5E33EF41A92469900FD356D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -237,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14DB89061A8F532100FAFB6C /* Main.storyboard in Resources */,
+				E5E33EF51A92469900FD356D /* InfoPlist.strings in Resources */,
 				14DB890B1A8F532100FAFB6C /* LaunchScreen.xib in Resources */,
 				14DB89081A8F532100FAFB6C /* Images.xcassets in Resources */,
 			);
