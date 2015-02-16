@@ -32,6 +32,8 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
         self.collectionView?.backgroundColor = UIColor.hexStr("E9E9F5", alpha: 1)
         self.loadList()
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -71,20 +73,26 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
         nextBtn?.addTarget(self, action: "doNext", forControlEvents: .TouchUpInside)
         let nextItem = UIBarButtonItem(customView: nextBtn!)
         
-        let playBtn    = UIButton.buttonWithType(.Custom) as? UIButton
-        playBtn?.frame = CGRectMake(0, 0, 110, 110)
+        let playBtn     = UIButton.buttonWithType(.Custom) as? UIButton
+        playBtn?.frame  = CGRectMake(0, 0, 110, 110)
+        playBtn?.center = CGPointMake(self.view.center.x, self.view.frame.size.height)
         playBtn?.setImage(UIImage(named: "obaq"), forState: .Normal)
         playBtn?.layer.cornerRadius = 55
         playBtn?.backgroundColor    = UIColor.hexStr("3E1762", alpha: 1)
         playBtn?.imageEdgeInsets    = UIEdgeInsets(top: -20, left: 0, bottom: 0, right: 0)
         playBtn?.addTarget(self, action: "doPlay", forControlEvents: .TouchUpInside)
-        let playItem = UIBarButtonItem(customView: playBtn!)
-        
         
         let space  = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+        let spacer = UIBarButtonItem(barButtonSystemItem: .FixedSpace, target: nil, action: nil)
+        spacer.width = 130
         
-        self.toolbarItems = [space, prevItem, space, playItem, space, nextItem, space]
-        self.navigationController?.toolbarHidden = false;
+        var toolbarItems = [space, prevItem, space, spacer, space, nextItem, space]
+        
+        let toolBar = UIToolbar(frame: CGRectMake(0, self.view.frame.height-30, self.view.frame.size.width, 50))
+        toolBar.items = toolbarItems
+        
+        self.view.addSubview(toolBar)
+        self.view.addSubview(playBtn!)
     }
     
     func doMenu()
