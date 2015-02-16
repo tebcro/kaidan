@@ -22,13 +22,7 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
         super.viewDidLoad()
         self.makeNavigationItems()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
         self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(animated: Bool)
@@ -60,6 +54,16 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
         
         self.navigationItem.leftBarButtonItem  = searchItem
         self.navigationItem.rightBarButtonItem = menuItem
+    }
+    
+    func doMenu()
+    {
+        
+    }
+    
+    func doSearch()
+    {
+        
     }
     
     func loadList()
