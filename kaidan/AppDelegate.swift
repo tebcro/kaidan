@@ -14,13 +14,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
-        UINavigationBar.appearance().barTintColor = UIColor.hexStr("200040", alpha: 0)
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
+    {
+        UINavigationBar.appearance().barTintColor = UIColor.hexStr("1B0D3F", alpha: 0)
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         UINavigationBar.appearance().titleTextAttributes = [
             NSForegroundColorAttributeName: UIColor.whiteColor()
         ]//NSFontAttributeName
+        UIToolbar.appearance().barTintColor = UIColor.hexStr("1B0D3F", alpha: 0)
         
         return true
     }

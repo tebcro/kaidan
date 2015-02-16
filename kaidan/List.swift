@@ -21,6 +21,7 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.makeNavigationItems()
+        self.makeToolBarItems()
 
         self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
@@ -40,20 +41,50 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
     {
         self.title = "怪談耳"
         
-        let searchBtn = UIButton.buttonWithType(.Custom) as? UIButton
-        searchBtn?.setBackgroundImage(UIImage(named: "search"), forState: .Normal)
+        let searchBtn    = UIButton.buttonWithType(.Custom) as? UIButton
         searchBtn?.frame = CGRectMake(0, 0, 20, 20)
+        searchBtn?.setBackgroundImage(UIImage(named: "search"), forState: .Normal)
         searchBtn?.addTarget(self, action: "doSearch", forControlEvents: .TouchUpInside)
         let searchItem = UIBarButtonItem(customView: searchBtn!)
         
-        let menuBtn = UIButton.buttonWithType(.Custom) as? UIButton
+        let menuBtn    = UIButton.buttonWithType(.Custom) as? UIButton
+        menuBtn?.frame = CGRectMake(0, 0, 20, 20)
         menuBtn?.setBackgroundImage(UIImage(named: "menu"), forState: .Normal)
         menuBtn?.addTarget(self, action: "doMenu", forControlEvents: .TouchUpInside)
-        menuBtn?.frame = CGRectMake(0, 0, 20, 20)
         let menuItem = UIBarButtonItem(customView: menuBtn!)
         
         self.navigationItem.leftBarButtonItem  = searchItem
         self.navigationItem.rightBarButtonItem = menuItem
+    }
+    
+    func makeToolBarItems()
+    {
+        let prevBtn    = UIButton.buttonWithType(.Custom) as? UIButton
+        prevBtn?.frame = CGRectMake(0, 0, 26, 26)
+        prevBtn?.setImage(UIImage(named: "prev"), forState: .Normal)
+        prevBtn?.addTarget(self, action: "doPrev", forControlEvents: .TouchUpInside)
+        let prevItem = UIBarButtonItem(customView: prevBtn!)
+        
+        let nextBtn    = UIButton.buttonWithType(.Custom) as? UIButton
+        nextBtn?.frame = CGRectMake(0, 0, 26, 26)
+        nextBtn?.setImage(UIImage(named: "next"), forState: .Normal)
+        nextBtn?.addTarget(self, action: "doNext", forControlEvents: .TouchUpInside)
+        let nextItem = UIBarButtonItem(customView: nextBtn!)
+        
+        let playBtn    = UIButton.buttonWithType(.Custom) as? UIButton
+        playBtn?.frame = CGRectMake(0, 0, 110, 110)
+        playBtn?.setImage(UIImage(named: "obaq"), forState: .Normal)
+        playBtn?.layer.cornerRadius = 55
+        playBtn?.backgroundColor    = UIColor.hexStr("3E1762", alpha: 1)
+        playBtn?.imageEdgeInsets    = UIEdgeInsets(top: -20, left: 0, bottom: 0, right: 0)
+        playBtn?.addTarget(self, action: "doPlay", forControlEvents: .TouchUpInside)
+        let playItem = UIBarButtonItem(customView: playBtn!)
+        
+        
+        let space  = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+        
+        self.toolbarItems = [space, prevItem, space, playItem, space, nextItem, space]
+        self.navigationController?.toolbarHidden = false;
     }
     
     func doMenu()
@@ -62,6 +93,21 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
     }
     
     func doSearch()
+    {
+        
+    }
+    
+    func doPrev()
+    {
+        
+    }
+    
+    func doNext()
+    {
+        
+    }
+    
+    func doPlay()
     {
         
     }
