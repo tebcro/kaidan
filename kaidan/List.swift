@@ -10,9 +10,8 @@ import UIKit
 import Alamofire
 import Alamofire_SwiftyJSON
 import SVProgressHUD
-import HCYoutubeParser
 
-let reuseIdentifier = "Cell"
+let reuseIdentifier = "ListCell"
 
 class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
 
@@ -23,7 +22,7 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
         self.makeNavigationItems()
         self.makeToolBarItems()
 
-        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView!.registerClass(ListCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
     
     override func viewWillAppear(animated: Bool)
@@ -81,6 +80,8 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
         playBtn?.backgroundColor    = UIColor.hexStr("3E1762", alpha: 1)
         playBtn?.imageEdgeInsets    = UIEdgeInsets(top: -20, left: 0, bottom: 0, right: 0)
         playBtn?.addTarget(self, action: "doPlay", forControlEvents: .TouchUpInside)
+        playBtn?.addTarget(self, action: "changeBgClick:", forControlEvents: .TouchUpInside)
+        playBtn?.addTarget(self, action: "changeBgRelease:", forControlEvents: .TouchDown)
         
         let space  = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
         let spacer = UIBarButtonItem(barButtonSystemItem: .FixedSpace, target: nil, action: nil)
@@ -120,6 +121,16 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
         
     }
     
+    func changeBgClick(sender : UIButton)
+    {
+        sender.backgroundColor = UIColor.hexStr("3E1762", alpha: 1)
+    }
+    
+    func changeBgRelease(sender : UIButton)
+    {
+        sender.backgroundColor = UIColor.hexStr("290E41", alpha: 1)
+    }
+    
     func loadList()
     {
         SVProgressHUD.showWithStatus("一覧取得中..", maskType: .Black)
@@ -153,27 +164,19 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> ListCell
     {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ListCell", forIndexPath: indexPath) as ListCell
-    
-        cell.movieId  = data?.objectAtIndex(indexPath.row) as NSString
+        var cell     = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as ListCell
+        cell.movieId = data?.objectAtIndex(indexPath.row) as NSString
+        cell.loadMovieInfo()
         
-        var info      = loadMovieInfo(cell.movieId)
-        cell.movieUrl = NSURL(string: info!["medium"] as NSString)
-        cell.makeFields(info?["moreInfo"]! as NSDictionary)
-    
+        UIView.animateWithDuration(1.0, animations: { () -> Void in
+            cell.alpha = 1.0
+        }) { (Bool finish) -> Void in
+            
+        }
         return cell
-    }
-    
-    func loadMovieInfo(movieId: String)->NSDictionary?
-    {
-        let url  = NSURL(string: "https://www.youtube.com/embed/\(movieId)")
-        let dict = HCYoutubeParser.h264videosWithYoutubeURL(url)
-        NSLog("dict=%@", dict)
-        return dict
     }
 
     // MARK: UICollectionViewDelegate
-
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
     }

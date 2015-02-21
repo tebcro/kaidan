@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import HCYoutubeParser
 
 class ListCell: UICollectionViewCell {
     
@@ -18,8 +19,11 @@ class ListCell: UICollectionViewCell {
     var textLabel:UILabel!
     var detailTextLabel:UILabel!
     
-    func makeFields(info:NSDictionary)
+    override init(frame: CGRect)
     {
+        super.init(frame: CGRectZero)
+        
+        self.alpha           = 0
         self.backgroundColor = UIColor.hexStr("FFFFFF", alpha: 0.9)
         
         imageView                       = UIImageView(frame: CGRectMake(10, 10, 40, 40))
@@ -40,17 +44,36 @@ class ListCell: UICollectionViewCell {
         self.addSubview(imageView)
         self.addSubview(textLabel)
         self.addSubview(detailTextLabel)
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func loadMovieInfo()
+    {
+        if imageView.image != nil {
+            return
+        }
+        let url = NSURL(string: "https://www.youtube.com/embed/\(movieId)")
+        let dic = HCYoutubeParser.h264videosWithYoutubeURL(url)
         
-        
-        var image = UIImage.loadImage(self.movieId)
+        movieUrl = NSURL(string: dic["medium"] as NSString)
+        insertData(dic["moreInfo"]! as NSDictionary)
+    }
+    
+    func insertData(info:NSDictionary)
+    {
+        var image = UIImage.loadImage(movieId)
         if (image != nil) {
             self.imageView?.image = image
         } else {
             getImage(info["iurl"] as String)
         }
-        textLabel.text       = info["title"] as? String
         var seconds          = info["length_seconds"] as String
         var time             = ajustTime(seconds.toInt()!)
+        
+        textLabel.text       = info["title"] as? String
         detailTextLabel.text = "再生時間：\(time)"
     }
     
