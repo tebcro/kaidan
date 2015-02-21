@@ -164,16 +164,22 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> ListCell
     {
-        var cell     = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as ListCell
-        cell.movieId = data?.objectAtIndex(indexPath.row) as NSString
-        cell.loadMovieInfo()
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as? ListCell
+        
+        cell!.movieId = data?.objectAtIndex(indexPath.row) as String
+        
+        if cell!.movieInfo == nil {
+            cell!.loadMovieInfo()
+        } else {
+            cell!.insertData()
+        }
         
         UIView.animateWithDuration(1.0, animations: { () -> Void in
-            cell.alpha = 1.0
+            cell!.alpha = 1.0
         }) { (Bool finish) -> Void in
             
         }
-        return cell
+        return cell!
     }
 
     // MARK: UICollectionViewDelegate

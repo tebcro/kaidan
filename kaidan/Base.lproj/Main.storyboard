@@ -31,7 +31,7 @@
                                 <size key="customSize" width="320" height="60"/>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="kkH-gk-0yU">
+                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellFooter" id="kkH-gk-0yU">
                             <rect key="frame" x="0.0" y="124" width="600" height="100"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </collectionReusableView>

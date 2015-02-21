@@ -14,6 +14,11 @@ class ListCell: UICollectionViewCell {
     
     var movieId:String = ""
     var movieUrl:NSURL?
+    var movieInfo:NSDictionary? {
+        didSet {
+            insertData()
+        }
+    }
     
     var imageView:UIImageView!
     var textLabel:UILabel!
@@ -41,40 +46,48 @@ class ListCell: UICollectionViewCell {
         detailTextLabel.font            = UIFont.systemFontOfSize(12)
         detailTextLabel.textColor       = UIColor.hexStr("555555", alpha: 1)
         
-        self.addSubview(imageView)
-        self.addSubview(textLabel)
-        self.addSubview(detailTextLabel)
+        self.contentView.addSubview(imageView)
+        self.contentView.addSubview(textLabel)
+        self.contentView.addSubview(detailTextLabel)
     }
 
     required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
     
     func loadMovieInfo()
     {
-        if imageView.image != nil {
-            return
-        }
-        let url = NSURL(string: "https://www.youtube.com/embed/\(movieId)")
-        let dic = HCYoutubeParser.h264videosWithYoutubeURL(url)
-        
-        movieUrl = NSURL(string: dic["medium"] as NSString)
-        insertData(dic["moreInfo"]! as NSDictionary)
+        let thread = dispatch_queue_create("showDataCell", DISPATCH_QUEUE_SERIAL)
+        dispatch_sync(thread, { () -> Void in
+            #if DEBUG
+                var startDate = NSDate()
+            #endif
+            let url = NSURL(string: "https://www.youtube.com/embed/\(self.movieId)")
+            var info = HCYoutubeParser.h264videosWithYoutubeURL(url)
+            self.movieUrl  = NSURL(string: info["medium"] as NSString)
+            self.movieInfo = info["moreInfo"] as? NSDictionary
+            
+            #if DEBUG
+                var interval = NSDate().timeIntervalSinceDate(startDate)
+                NSLog("time is %lf (sec)", interval)
+            #endif
+        })
     }
     
-    func insertData(info:NSDictionary)
+    func insertData()
     {
         var image = UIImage.loadImage(movieId)
         if (image != nil) {
             self.imageView?.image = image
         } else {
-            getImage(info["iurl"] as String)
+            getImage(movieInfo!["iurl"] as String)
         }
-        var seconds          = info["length_seconds"] as String
+        var seconds          = movieInfo!["length_seconds"] as String
         var time             = ajustTime(seconds.toInt()!)
         
-        textLabel.text       = info["title"] as? String
+        textLabel.text       = movieInfo!["title"] as? String
         detailTextLabel.text = "再生時間：\(time)"
+        
     }
     
     func ajustTime(second:Int) -> String
