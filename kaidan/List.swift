@@ -96,6 +96,18 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
         self.view.addSubview(playBtn!)
     }
     
+    func makeHideFooter()
+    {
+        var footerView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, 100))
+        var obaq = UIImageView(image: UIImage(named: "scroll_after"))
+        footerView.addSubview(obaq)
+        
+        var height = CGFloat(data?.count ?? 0) * 78
+        footerView.frame = CGRectMake((self.view.frame.width - obaq.frame.size.width)/2, height, footerView.frame.size.width, footerView.frame.size.height)
+        
+        self.collectionView?.addSubview(footerView)
+    }
+    
     func doMenu()
     {
         
@@ -142,6 +154,7 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
                     let listData: NSDictionary = json.object as NSDictionary
                     self.data = listData["lists"]! as? NSMutableArray
                     self.collectionView?.reloadData()
+                    self.makeHideFooter()
                     SVProgressHUD.showSuccessWithStatus("取得完了！")
                     
                 } else
@@ -185,6 +198,8 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
     // MARK: UICollectionViewDelegate
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
+        var cell = self.collectionView(collectionView, cellForItemAtIndexPath: indexPath) as ListCell
+//        cell.effect()
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets
@@ -195,6 +210,18 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
     {
         return CGSize(width: self.view.frame.size.width, height: 60)
+    }
+    
+    override func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath)
+    {
+        var cell = collectionView.cellForItemAtIndexPath(indexPath) as ListCell
+        cell.contentView.backgroundColor = UIColor.hexStr("EE3300", alpha: 1)
+    }
+    
+    override func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath)
+    {
+        var cell = collectionView.cellForItemAtIndexPath(indexPath) as ListCell
+        cell.contentView.backgroundColor = UIColor.hexStr("FFFFFF", alpha: 1)
     }
     
     /*
