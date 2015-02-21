@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import SpriteKit
 import Alamofire
 import HCYoutubeParser
 
 class ListCell: UICollectionViewCell {
+    
+    let kAnimationDuration = 0.8
+    let kParticleName = "blood"
     
     var movieId:String = ""
     var movieUrl:NSURL?
@@ -23,13 +27,14 @@ class ListCell: UICollectionViewCell {
     var imageView:UIImageView!
     var textLabel:UILabel!
     var detailTextLabel:UILabel!
+    var skView:SKView!
     
     override init(frame: CGRect)
     {
         super.init(frame: CGRectZero)
         
         self.alpha           = 0
-        self.backgroundColor = UIColor.hexStr("FFFFFF", alpha: 0.9)
+        self.contentView.backgroundColor = UIColor.hexStr("FFFFFF", alpha: 1)
         
         imageView                       = UIImageView(frame: CGRectMake(10, 10, 40, 40))
         imageView.backgroundColor       = UIColor.hexStr("EEEEEE", alpha: 1)
@@ -49,6 +54,12 @@ class ListCell: UICollectionViewCell {
         self.contentView.addSubview(imageView)
         self.contentView.addSubview(textLabel)
         self.contentView.addSubview(detailTextLabel)
+    }
+    
+    func resetFontColor()
+    {
+        textLabel.textColor       = UIColor.hexStr("222222", alpha: 1)
+        detailTextLabel.textColor = UIColor.hexStr("555555", alpha: 1)
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -122,4 +133,51 @@ class ListCell: UICollectionViewCell {
                 }
         }
     }
+    
+    func effect()
+    {
+        let w:CGFloat = self.contentView.frame.size.width
+        
+        var scene:SKScene?
+        if skView == nil {
+            scene                         = SKScene(size: self.contentView.frame.size)
+            scene!.backgroundColor        = UIColor.clearColor()
+            skView                        = SKView(frame: self.contentView.frame)
+            skView.allowsTransparency     = true
+            skView.userInteractionEnabled = false
+            skView.ignoresSiblingOrder    = true
+            skView.presentScene(scene)
+            
+            self.contentView.addSubview(skView)
+        } else {
+            scene = skView.scene!
+        }
+        
+        let path          = NSBundle.mainBundle().pathForResource(kParticleName, ofType: "sks")
+        let particle      = NSKeyedUnarchiver.unarchiveObjectWithFile(path!) as SKEmitterNode
+        particle.name     = kParticleName
+        particle.position = CGPointMake(w/2, 0)
+        scene!.addChild(particle)
+        
+        let scale    = SKAction.scaleTo(2.5, duration: 2)
+        let fadeout  = SKAction.fadeOutWithDuration(0.5)
+        let remove   = SKAction.removeFromParent()
+        let sequence = SKAction.sequence([scale,fadeout,remove])
+        particle.runAction(sequence, completion: { () -> Void in
+            self.skView.removeFromSuperview()
+            self.skView = nil
+        })
+        
+        UIView.animateWithDuration(2, animations: { () -> Void in
+            self.contentView.backgroundColor = UIColor.hexStr("670000", alpha: 1)
+            self.textLabel.textColor         = UIColor.hexStr("FFFFFF", alpha: 1)
+            self.detailTextLabel.textColor   = UIColor.hexStr("FFFFFF", alpha: 1)
+        }) { (success) -> Void in
+        }
+    }
 }
+
+
+
+
+

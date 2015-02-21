@@ -198,8 +198,9 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
     // MARK: UICollectionViewDelegate
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        var cell = self.collectionView(collectionView, cellForItemAtIndexPath: indexPath) as ListCell
-//        cell.effect()
+        var cell = collectionView.cellForItemAtIndexPath(indexPath) as ListCell
+        cell.effect()
+//        moviePlayer = MPMoviePlayerController(contentURL: cell.movieUrl)
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets
@@ -215,13 +216,14 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
     override func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath)
     {
         var cell = collectionView.cellForItemAtIndexPath(indexPath) as ListCell
-        cell.contentView.backgroundColor = UIColor.hexStr("EE3300", alpha: 1)
+        cell.contentView.backgroundColor = UIColor.hexStr("670000", alpha: 1)
     }
     
     override func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath)
     {
         var cell = collectionView.cellForItemAtIndexPath(indexPath) as ListCell
         cell.contentView.backgroundColor = UIColor.hexStr("FFFFFF", alpha: 1)
+        cell.resetFontColor()
     }
     
     /*
