@@ -8,4 +8,6 @@
 
 import Foundation
 
-let LIST_API_URL = "https://s3-ap-northeast-1.amazonaws.com/kaidan.app/kaidan.json"
+let LIST_API_URL  = "https://s3-ap-northeast-1.amazonaws.com/kaidan.app/kaidan.json"
+let LATEST_UPDATE = "last_update"
+let LATEST_LIST   = "last_list"

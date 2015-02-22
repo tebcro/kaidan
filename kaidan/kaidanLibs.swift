@@ -99,6 +99,48 @@ extension UIImage
     }
 }
 
+extension NSDate {
+    
+    class func save (var name:String, var saveDate:NSDate) -> Bool
+    {
+        var ud = NSUserDefaults.standardUserDefaults()
+        ud.setObject(saveDate, forKey: name)
+        return ud.synchronize()
+    }
+    
+    class func load (var name:String) -> NSDate?
+    {
+        var ud = NSUserDefaults.standardUserDefaults()
+        return ud.objectForKey(name) as? NSDate
+    }
+    
+    class func dateFromString(var dateString:String) -> NSDate
+    {
+        var formatter       = NSDateFormatter()
+        formatter.locale    = NSLocale(localeIdentifier: "ja-JP")
+        formatter.timeStyle = .MediumStyle
+        formatter.dateStyle = .MediumStyle
+        
+        return formatter.dateFromString(dateString)!
+    }
+}
+
+extension NSMutableArray {
+    
+    class func save (var name:String, var saveArray:NSMutableArray) -> Bool
+    {
+        var ud = NSUserDefaults.standardUserDefaults()
+        ud.setObject(saveArray, forKey: name)
+        return ud.synchronize()
+    }
+    
+    class func load (var name:String) -> NSMutableArray?
+    {
+        var ud = NSUserDefaults.standardUserDefaults()
+        return ud.objectForKey(name) as? NSMutableArray
+    }
+}
+
 extension String {
     var floatValue: Float {
         return (self as NSString).floatValue

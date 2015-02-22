@@ -10,12 +10,13 @@ import UIKit
 import Alamofire
 import Alamofire_SwiftyJSON
 import SVProgressHUD
+import HCYoutubeParser
 
 let reuseIdentifier = "ListCell"
 
 class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
 
-    var data:NSMutableArray?
+    var data = NSMutableArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,7 +103,7 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
         var obaq = UIImageView(image: UIImage(named: "scroll_after"))
         footerView.addSubview(obaq)
         
-        var height = CGFloat(data?.count ?? 0) * 78
+        var height = CGFloat(data.count ?? 0) * 78
         footerView.frame = CGRectMake((self.view.frame.width - obaq.frame.size.width)/2, height, footerView.frame.size.width, footerView.frame.size.height)
         
         self.collectionView?.addSubview(footerView)
@@ -151,11 +152,15 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
             .responseSwiftyJSON { (request, response, json, error) in
                 if response!.statusCode == 200
                 {
-                    let listData: NSDictionary = json.object as NSDictionary
-                    self.data = listData["lists"]! as? NSMutableArray
-                    self.collectionView?.reloadData()
-                    self.makeHideFooter()
-                    SVProgressHUD.showSuccessWithStatus("取得完了！")
+                    let listData = json.object as NSDictionary
+                    var date     = NSDate.dateFromString(listData["update"] as String)
+                    if self.checkUpdateData(date) {
+                        NSDate.save(LATEST_UPDATE, saveDate: date)
+                        self.loadShowListData(listData["lists"]! as Array)
+                    } else {
+                        self.data = NSMutableArray.load(LATEST_LIST)!
+                        self.complateListData()
+                    }
                     
                 } else
                 {
@@ -163,6 +168,41 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
                     SVProgressHUD.showErrorWithStatus("取得失敗！")
                 }
         }
+    }
+    
+    func checkUpdateData(date: NSDate) -> Bool
+    {
+        var latest:NSDate? = NSDate.load(LATEST_UPDATE)
+        if latest == nil {
+            return true
+        }
+        
+        switch(date.compare(latest!))
+        {
+            case .OrderedSame: return false
+            case .OrderedAscending: return true
+            default: return false
+        }
+    }
+    
+    func loadShowListData(listData: [String])
+    {
+        for movieId in listData {
+            let url  = NSURL(string: "https://www.youtube.com/embed/\(movieId)")
+            var info = HCYoutubeParser.h264videosWithYoutubeURL(url)
+            var list = [movieId, info]
+            
+            data.addObject(list)
+        }
+        NSMutableArray.save(LATEST_LIST, saveArray: data)
+        complateListData()
+    }
+    
+    func complateListData()
+    {
+        self.collectionView?.reloadData()
+        self.makeHideFooter()
+        SVProgressHUD.showSuccessWithStatus("取得完了！")
     }
 
     // MARK: UICollectionViewDataSource
@@ -172,20 +212,18 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
     }
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data?.count ?? 0
+        return data.count ?? 0
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> ListCell
     {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as? ListCell
         
-        cell!.movieId = data?.objectAtIndex(indexPath.row) as String
+        var list      = data.objectAtIndex(indexPath.row) as NSArray
+        cell!.movieId = list[0] as String
+        cell!.insertData(list[1] as [NSObject : AnyObject])
         
-        if cell!.movieInfo == nil {
-            cell!.loadMovieInfo()
-        } else {
-            cell!.insertData()
-        }
+        NSLog("index=%d", indexPath.row)
         
         UIView.animateWithDuration(1.0, animations: { () -> Void in
             cell!.alpha = 1.0

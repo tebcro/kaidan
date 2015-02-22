@@ -9,7 +9,6 @@
 import UIKit
 import SpriteKit
 import Alamofire
-import HCYoutubeParser
 
 class ListCell: UICollectionViewCell {
     
@@ -18,11 +17,7 @@ class ListCell: UICollectionViewCell {
     
     var movieId:String = ""
     var movieUrl:NSURL?
-    var movieInfo:NSDictionary? {
-        didSet {
-            insertData()
-        }
-    }
+    var movieInfo:NSDictionary?
     
     var imageView:UIImageView!
     var textLabel:UILabel!
@@ -66,17 +61,14 @@ class ListCell: UICollectionViewCell {
         super.init(coder: aDecoder)
     }
     
-    func loadMovieInfo()
+    func loadMovieInfo(info: [NSObject : AnyObject]!)
     {
         let thread = dispatch_queue_create("showDataCell", DISPATCH_QUEUE_SERIAL)
         dispatch_sync(thread, { () -> Void in
             #if DEBUG
                 var startDate = NSDate()
             #endif
-            let url = NSURL(string: "https://www.youtube.com/embed/\(self.movieId)")
-            var info = HCYoutubeParser.h264videosWithYoutubeURL(url)
-            self.movieUrl  = NSURL(string: info["medium"] as NSString)
-            self.movieInfo = info["moreInfo"] as? NSDictionary
+            
             
             #if DEBUG
                 var interval = NSDate().timeIntervalSinceDate(startDate)
@@ -85,14 +77,19 @@ class ListCell: UICollectionViewCell {
         })
     }
     
-    func insertData()
+    func insertData(info: [NSObject : AnyObject]!)
     {
         var image = UIImage.loadImage(movieId)
+        
         if (image != nil) {
             self.imageView?.image = image
         } else {
-            getImage(movieInfo!["iurl"] as String)
+            getImage(info["moreInfo"]!["iurl"] as String)
         }
+        
+        self.movieUrl  = NSURL(string: info["medium"] as NSString)
+        self.movieInfo = info["moreInfo"] as? NSDictionary
+        
         var seconds          = movieInfo!["length_seconds"] as String
         var time             = ajustTime(seconds.toInt()!)
         

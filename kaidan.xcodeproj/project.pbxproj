@@ -19,6 +19,7 @@
 		E5979BDA1A905834000AA716 /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5979BD91A905834000AA716 /* Configs.swift */; };
 		E59ABADA1A988CE6007CA31A /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = E59ABAD81A988CE6007CA31A /* spark.png */; };
 		E59ABAE41A9902DF007CA31A /* blood.sks in Resources */ = {isa = PBXBuildFile; fileRef = E59ABAE31A9902DF007CA31A /* blood.sks */; };
+		E59ABAEB1A99C5DC007CA31A /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E59ABAEA1A99C5DC007CA31A /* SVProgressHUD.bundle */; };
 		E5E33EEC1A90ACD300FD356D /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E33EEB1A90ACD300FD356D /* List.swift */; };
 		E5E33EEE1A90AE5500FD356D /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E33EED1A90AE5500FD356D /* ListCell.swift */; };
 		E5E33EF51A92469900FD356D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5E33EF41A92469900FD356D /* InfoPlist.strings */; };
@@ -53,6 +54,7 @@
 		E5979BD91A905834000AA716 /* Configs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
 		E59ABAD81A988CE6007CA31A /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		E59ABAE31A9902DF007CA31A /* blood.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = blood.sks; sourceTree = "<group>"; };
+		E59ABAEA1A99C5DC007CA31A /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = Pods/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle; sourceTree = SOURCE_ROOT; };
 		E5E33EEB1A90ACD300FD356D /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		E5E33EED1A90AE5500FD356D /* ListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 		E5E33EF41A92469900FD356D /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 		14DB88FE1A8F532100FAFB6C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E59ABAEA1A99C5DC007CA31A /* SVProgressHUD.bundle */,
 				14DB88FF1A8F532100FAFB6C /* Info.plist */,
 				E5E33EF41A92469900FD356D /* InfoPlist.strings */,
 				E59ABAE31A9902DF007CA31A /* blood.sks */,
@@ -243,6 +246,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E59ABAEB1A99C5DC007CA31A /* SVProgressHUD.bundle in Resources */,
 				14DB89061A8F532100FAFB6C /* Main.storyboard in Resources */,
 				E59ABADA1A988CE6007CA31A /* spark.png in Resources */,
 				E59ABAE41A9902DF007CA31A /* blood.sks in Resources */,
