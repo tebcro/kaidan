@@ -16,9 +16,11 @@ let reuseIdentifier = "ListCell"
 
 class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
 
-    var data = NSMutableArray()
+    var data         = NSMutableArray()
+    var kaidanPlayer = KaidanPlayer()
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         self.makeNavigationItems()
         self.makeToolBarItems()
@@ -32,13 +34,13 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
         self.collectionView?.backgroundColor = UIColor.hexStr("E9E9F5", alpha: 1)
         self.loadList()
     }
-    
-    
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
     }
     
+    //ナビゲーション生成
     func makeNavigationItems()
     {
         self.title = "怪談耳"
@@ -47,31 +49,31 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
         searchBtn?.frame = CGRectMake(0, 0, 20, 20)
         searchBtn?.setBackgroundImage(UIImage(named: "search"), forState: .Normal)
         searchBtn?.addTarget(self, action: "doSearch", forControlEvents: .TouchUpInside)
-        let searchItem = UIBarButtonItem(customView: searchBtn!)
         
         let menuBtn    = UIButton.buttonWithType(.Custom) as? UIButton
         menuBtn?.frame = CGRectMake(0, 0, 20, 20)
         menuBtn?.setBackgroundImage(UIImage(named: "menu"), forState: .Normal)
         menuBtn?.addTarget(self, action: "doMenu", forControlEvents: .TouchUpInside)
+        
+        let searchItem = UIBarButtonItem(customView: searchBtn!)
         let menuItem = UIBarButtonItem(customView: menuBtn!)
         
         self.navigationItem.leftBarButtonItem  = searchItem
         self.navigationItem.rightBarButtonItem = menuItem
     }
     
+    //ツールバー生成
     func makeToolBarItems()
     {
         let prevBtn    = UIButton.buttonWithType(.Custom) as? UIButton
         prevBtn?.frame = CGRectMake(0, 0, 26, 26)
         prevBtn?.setImage(UIImage(named: "prev"), forState: .Normal)
         prevBtn?.addTarget(self, action: "doPrev", forControlEvents: .TouchUpInside)
-        let prevItem = UIBarButtonItem(customView: prevBtn!)
         
         let nextBtn    = UIButton.buttonWithType(.Custom) as? UIButton
         nextBtn?.frame = CGRectMake(0, 0, 26, 26)
         nextBtn?.setImage(UIImage(named: "next"), forState: .Normal)
         nextBtn?.addTarget(self, action: "doNext", forControlEvents: .TouchUpInside)
-        let nextItem = UIBarButtonItem(customView: nextBtn!)
         
         let playBtn     = UIButton.buttonWithType(.Custom) as? UIButton
         playBtn?.frame  = CGRectMake(0, 0, 110, 110)
@@ -81,11 +83,11 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
         playBtn?.backgroundColor    = UIColor.hexStr("3E1762", alpha: 1)
         playBtn?.imageEdgeInsets    = UIEdgeInsets(top: -20, left: 0, bottom: 0, right: 0)
         playBtn?.addTarget(self, action: "doPlay", forControlEvents: .TouchUpInside)
-        playBtn?.addTarget(self, action: "changeBgClick:", forControlEvents: .TouchUpInside)
-        playBtn?.addTarget(self, action: "changeBgRelease:", forControlEvents: .TouchDown)
         
-        let space  = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
-        let spacer = UIBarButtonItem(barButtonSystemItem: .FixedSpace, target: nil, action: nil)
+        let prevItem = UIBarButtonItem(customView: prevBtn!)
+        let nextItem = UIBarButtonItem(customView: nextBtn!)
+        let space    = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+        let spacer   = UIBarButtonItem(barButtonSystemItem: .FixedSpace, target: nil, action: nil)
         spacer.width = 130
         
         var toolbarItems = [space, prevItem, space, spacer, space, nextItem, space]
@@ -97,10 +99,11 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
         self.view.addSubview(playBtn!)
     }
     
+    // フッターに隠しオバケ表示
     func makeHideFooter()
     {
         var footerView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, 100))
-        var obaq = UIImageView(image: UIImage(named: "scroll_after"))
+        var obaq       = UIImageView(image: UIImage(named: "scroll_after"))
         footerView.addSubview(obaq)
         
         var height = CGFloat(data.count ?? 0) * 78
@@ -131,19 +134,21 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
     
     func doPlay()
     {
-        
+        switch(kaidanPlayer.playbackState)
+        {
+            case .Playing: kaidanPlayer.pause()
+            case .Paused: kaidanPlayer.play()
+            case .Stopped:
+                var index = NSIndexPath(forRow: 0, inSection: 0)
+                var cell  = self.collectionView!.cellForItemAtIndexPath(index) as ListCell
+                player(cell.movieUrl!)
+            case .SeekingBackward: NSLog("SeekingBackward")
+            case .SeekingForward: NSLog("SeekingForward")
+            default: NSLog("default")
+        }
     }
     
-    func changeBgClick(sender : UIButton)
-    {
-        sender.backgroundColor = UIColor.hexStr("3E1762", alpha: 1)
-    }
-    
-    func changeBgRelease(sender : UIButton)
-    {
-        sender.backgroundColor = UIColor.hexStr("290E41", alpha: 1)
-    }
-    
+    //基本データの通信・取得
     func loadList()
     {
         SVProgressHUD.showWithStatus("一覧取得中..", maskType: .Black)
@@ -170,6 +175,7 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
         }
     }
     
+    //日付データが新しくなっているかどうかをチェック
     func checkUpdateData(date: NSDate) -> Bool
     {
         var latest:NSDate? = NSDate.load(LATEST_UPDATE)
@@ -185,6 +191,7 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
         }
     }
     
+    //youtubeのAPI使って詳細情報を取得（これは結構時間がかかる）
     func loadShowListData(listData: [String])
     {
         for movieId in listData {
@@ -198,6 +205,7 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
         complateListData()
     }
     
+    //取得完了時に呼び出し
     func complateListData()
     {
         self.collectionView?.reloadData()
@@ -206,7 +214,6 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
     }
 
     // MARK: UICollectionViewDataSource
-
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -238,7 +245,7 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
         
         var cell = collectionView.cellForItemAtIndexPath(indexPath) as ListCell
         cell.effect()
-//        moviePlayer = MPMoviePlayerController(contentURL: cell.movieUrl)
+        player(cell.movieUrl!)
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets
@@ -254,7 +261,7 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
     override func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath)
     {
         var cell = collectionView.cellForItemAtIndexPath(indexPath) as ListCell
-        cell.contentView.backgroundColor = UIColor.hexStr("670000", alpha: 1)
+        cell.contentView.backgroundColor = UIColor.hexStr("DDDDDD", alpha: 1)
     }
     
     override func collectionView(collectionView: UICollectionView, didUnhighlightItemAtIndexPath indexPath: NSIndexPath)
@@ -264,33 +271,12 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
         cell.resetFontColor()
     }
     
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
     
+    // MARK: プレイヤー呼び出し
+    private func player(url:NSURL)
+    {
+        kaidanPlayer = KaidanPlayer(contentURL: url)
+        kaidanPlayer.play()
     }
-    */
 
 }

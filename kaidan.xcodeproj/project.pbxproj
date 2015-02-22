@@ -20,6 +20,7 @@
 		E59ABADA1A988CE6007CA31A /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = E59ABAD81A988CE6007CA31A /* spark.png */; };
 		E59ABAE41A9902DF007CA31A /* blood.sks in Resources */ = {isa = PBXBuildFile; fileRef = E59ABAE31A9902DF007CA31A /* blood.sks */; };
 		E59ABAEB1A99C5DC007CA31A /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E59ABAEA1A99C5DC007CA31A /* SVProgressHUD.bundle */; };
+		E59ABAED1A99D271007CA31A /* KaidanPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59ABAEC1A99D271007CA31A /* KaidanPlayer.swift */; };
 		E5E33EEC1A90ACD300FD356D /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E33EEB1A90ACD300FD356D /* List.swift */; };
 		E5E33EEE1A90AE5500FD356D /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E33EED1A90AE5500FD356D /* ListCell.swift */; };
 		E5E33EF51A92469900FD356D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5E33EF41A92469900FD356D /* InfoPlist.strings */; };
@@ -55,6 +56,7 @@
 		E59ABAD81A988CE6007CA31A /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		E59ABAE31A9902DF007CA31A /* blood.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = blood.sks; sourceTree = "<group>"; };
 		E59ABAEA1A99C5DC007CA31A /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = Pods/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle; sourceTree = SOURCE_ROOT; };
+		E59ABAEC1A99D271007CA31A /* KaidanPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KaidanPlayer.swift; sourceTree = "<group>"; };
 		E5E33EEB1A90ACD300FD356D /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		E5E33EED1A90AE5500FD356D /* ListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 		E5E33EF41A92469900FD356D /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				14DB89001A8F532100FAFB6C /* AppDelegate.swift */,
 				14DB89291A8F657100FAFB6C /* Navigation.swift */,
 				E5E33EEB1A90ACD300FD356D /* List.swift */,
+				E59ABAEC1A99D271007CA31A /* KaidanPlayer.swift */,
 				E5E33EED1A90AE5500FD356D /* ListCell.swift */,
 				14DB89021A8F532100FAFB6C /* Viewer.swift */,
 				14DB89041A8F532100FAFB6C /* Main.storyboard */,
@@ -322,6 +325,7 @@
 				14DB89281A8F5E5F00FAFB6C /* kaidanLibs.swift in Sources */,
 				E5E33EEE1A90AE5500FD356D /* ListCell.swift in Sources */,
 				14DB892A1A8F657100FAFB6C /* Navigation.swift in Sources */,
+				E59ABAED1A99D271007CA31A /* KaidanPlayer.swift in Sources */,
 				14DB89011A8F532100FAFB6C /* AppDelegate.swift in Sources */,
 				E5979BDA1A905834000AA716 /* Configs.swift in Sources */,
 				E5E33EEC1A90ACD300FD356D /* List.swift in Sources */,
