@@ -8,10 +8,12 @@
 
 import UIKit
 
-class Navigation: UINavigationController {
+class Navigation: UINavigationController, UINavigationControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,4 +35,17 @@ class Navigation: UINavigationController {
         return Int(UIInterfaceOrientationMask.Portrait.rawValue)
     }
 
+    func navigationController(navigationController: UINavigationController,
+        animationControllerForOperation operation: UINavigationControllerOperation,
+        fromViewController fromVC: UIViewController,
+        toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning?
+    {
+        if (operation == .Push && toVC.isKindOfClass(Detail)) {
+            return GoViewAnimator()
+        }
+        if (operation == .Pop && fromVC.isKindOfClass(List)) {
+//            return CBLGridViewTransition()
+        }
+        return nil
+    }
 }

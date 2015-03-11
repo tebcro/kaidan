@@ -241,11 +241,14 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
     }
 
     // MARK: UICollectionViewDelegate
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
+    {
         var cell = collectionView.cellForItemAtIndexPath(indexPath) as ListCell
-        cell.effect()
-        player(cell.movieUrl!)
+        let detail = makeDetail(cell)
+//        let detail = self.storyboard?.instantiateViewControllerWithIdentifier("Detail") as Detail
+//        detail.useLayoutToLayoutNavigationTransitions = true
+//        detail.title                                  = cell.textLabel.text
+        self.navigationController?.pushViewController(detail, animated: true)
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets
@@ -271,6 +274,24 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
         cell.resetFontColor()
     }
     
+    override func collectionView(collectionView: UICollectionView, transitionLayoutForOldLayout fromLayout: UICollectionViewLayout, newLayout toLayout: UICollectionViewLayout) -> UICollectionViewTransitionLayout!
+    {
+        var transitionLayout = UICollectionViewTransitionLayout(currentLayout: fromLayout, nextLayout: toLayout)
+        return transitionLayout
+    }
+    
+    private func makeDetail(cell: ListCell) -> UICollectionViewController
+    {
+        var detailGrid:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        detailGrid.scrollDirection                = .Horizontal
+        detailGrid.itemSize                       = CGSizeMake(300, 420)
+        
+        var detail                                    = UICollectionViewController(collectionViewLayout: detailGrid)
+        detail.useLayoutToLayoutNavigationTransitions = true
+        detail.title                                  = cell.textLabel.text
+        
+        return detail
+    }
     
     // MARK: プレイヤー呼び出し
     private func player(url:NSURL)
@@ -278,5 +299,4 @@ class List: UICollectionViewController ,UICollectionViewDelegateFlowLayout {
         kaidanPlayer = KaidanPlayer(contentURL: url)
         kaidanPlayer.play()
     }
-
 }

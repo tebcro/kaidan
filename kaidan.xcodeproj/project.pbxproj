@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14399FE81AB00FA90025B18D /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14399FE71AB00FA90025B18D /* Detail.swift */; };
+		14399FEA1AB022310025B18D /* ListLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14399FE91AB022310025B18D /* ListLayout.swift */; };
+		14A102C01AAEC3C300F9B8E6 /* GoViewAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A102BF1AAEC3C300F9B8E6 /* GoViewAnimator.swift */; };
 		14DB89011A8F532100FAFB6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DB89001A8F532100FAFB6C /* AppDelegate.swift */; };
-		14DB89031A8F532100FAFB6C /* Viewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DB89021A8F532100FAFB6C /* Viewer.swift */; };
 		14DB89061A8F532100FAFB6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14DB89041A8F532100FAFB6C /* Main.storyboard */; };
 		14DB89081A8F532100FAFB6C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14DB89071A8F532100FAFB6C /* Images.xcassets */; };
 		14DB890B1A8F532100FAFB6C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14DB89091A8F532100FAFB6C /* LaunchScreen.xib */; };
@@ -39,10 +41,12 @@
 /* Begin PBXFileReference section */
 		03B475AB3C96E56A63863727 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DC278C0F71D866D7C5E5CE8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		14399FE71AB00FA90025B18D /* Detail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
+		14399FE91AB022310025B18D /* ListLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListLayout.swift; sourceTree = "<group>"; };
+		14A102BF1AAEC3C300F9B8E6 /* GoViewAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoViewAnimator.swift; sourceTree = "<group>"; };
 		14DB88FB1A8F532100FAFB6C /* kaidan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kaidan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14DB88FF1A8F532100FAFB6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14DB89001A8F532100FAFB6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		14DB89021A8F532100FAFB6C /* Viewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Viewer.swift; sourceTree = "<group>"; };
 		14DB89051A8F532100FAFB6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14DB89071A8F532100FAFB6C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		14DB890A1A8F532100FAFB6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -107,9 +111,11 @@
 				14DB89001A8F532100FAFB6C /* AppDelegate.swift */,
 				14DB89291A8F657100FAFB6C /* Navigation.swift */,
 				E5E33EEB1A90ACD300FD356D /* List.swift */,
+				14A102BF1AAEC3C300F9B8E6 /* GoViewAnimator.swift */,
+				14399FE91AB022310025B18D /* ListLayout.swift */,
 				E59ABAEC1A99D271007CA31A /* KaidanPlayer.swift */,
 				E5E33EED1A90AE5500FD356D /* ListCell.swift */,
-				14DB89021A8F532100FAFB6C /* Viewer.swift */,
+				14399FE71AB00FA90025B18D /* Detail.swift */,
 				14DB89041A8F532100FAFB6C /* Main.storyboard */,
 				14DB89071A8F532100FAFB6C /* Images.xcassets */,
 				14DB89091A8F532100FAFB6C /* LaunchScreen.xib */,
@@ -321,12 +327,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14DB89031A8F532100FAFB6C /* Viewer.swift in Sources */,
 				14DB89281A8F5E5F00FAFB6C /* kaidanLibs.swift in Sources */,
 				E5E33EEE1A90AE5500FD356D /* ListCell.swift in Sources */,
+				14399FE81AB00FA90025B18D /* Detail.swift in Sources */,
+				14399FEA1AB022310025B18D /* ListLayout.swift in Sources */,
 				14DB892A1A8F657100FAFB6C /* Navigation.swift in Sources */,
 				E59ABAED1A99D271007CA31A /* KaidanPlayer.swift in Sources */,
 				14DB89011A8F532100FAFB6C /* AppDelegate.swift in Sources */,
+				14A102C01AAEC3C300F9B8E6 /* GoViewAnimator.swift in Sources */,
 				E5979BDA1A905834000AA716 /* Configs.swift in Sources */,
 				E5E33EEC1A90ACD300FD356D /* List.swift in Sources */,
 			);
