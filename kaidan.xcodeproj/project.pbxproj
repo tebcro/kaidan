@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		14399FE81AB00FA90025B18D /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14399FE71AB00FA90025B18D /* Detail.swift */; };
 		14399FEA1AB022310025B18D /* ListLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14399FE91AB022310025B18D /* ListLayout.swift */; };
+		14399FEC1AB15A3A0025B18D /* DetailLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14399FEB1AB15A3A0025B18D /* DetailLayout.swift */; };
 		14A102C01AAEC3C300F9B8E6 /* GoViewAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A102BF1AAEC3C300F9B8E6 /* GoViewAnimator.swift */; };
 		14DB89011A8F532100FAFB6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DB89001A8F532100FAFB6C /* AppDelegate.swift */; };
 		14DB89061A8F532100FAFB6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14DB89041A8F532100FAFB6C /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 		0DC278C0F71D866D7C5E5CE8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		14399FE71AB00FA90025B18D /* Detail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
 		14399FE91AB022310025B18D /* ListLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListLayout.swift; sourceTree = "<group>"; };
+		14399FEB1AB15A3A0025B18D /* DetailLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailLayout.swift; sourceTree = "<group>"; };
 		14A102BF1AAEC3C300F9B8E6 /* GoViewAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoViewAnimator.swift; sourceTree = "<group>"; };
 		14DB88FB1A8F532100FAFB6C /* kaidan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kaidan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14DB88FF1A8F532100FAFB6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				E5E33EEB1A90ACD300FD356D /* List.swift */,
 				14A102BF1AAEC3C300F9B8E6 /* GoViewAnimator.swift */,
 				14399FE91AB022310025B18D /* ListLayout.swift */,
+				14399FEB1AB15A3A0025B18D /* DetailLayout.swift */,
 				E59ABAEC1A99D271007CA31A /* KaidanPlayer.swift */,
 				E5E33EED1A90AE5500FD356D /* ListCell.swift */,
 				14399FE71AB00FA90025B18D /* Detail.swift */,
@@ -330,6 +333,7 @@
 				14DB89281A8F5E5F00FAFB6C /* kaidanLibs.swift in Sources */,
 				E5E33EEE1A90AE5500FD356D /* ListCell.swift in Sources */,
 				14399FE81AB00FA90025B18D /* Detail.swift in Sources */,
+				14399FEC1AB15A3A0025B18D /* DetailLayout.swift in Sources */,
 				14399FEA1AB022310025B18D /* ListLayout.swift in Sources */,
 				14DB892A1A8F657100FAFB6C /* Navigation.swift in Sources */,
 				E59ABAED1A99D271007CA31A /* KaidanPlayer.swift in Sources */,
